@@ -1,0 +1,45 @@
+/* Controller panel: same rhythm as the other settings sections. */
+.gamepad-settings {
+  margin-top: 24px;
+  border-bottom: 1px solid #c1b8a7;
+  padding-bottom: 14px;
+}
+.gamepad-settings > h3 {
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.8px;
+}
+.gamepad-settings > h3 span {
+  margin-left: 18px;
+  color: #776f60;
+  letter-spacing: 0;
+}
+.gamepad-status {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 14px 0 6px;
+}
+.gamepad-status b {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.4px;
+}
+.gamepad-status small {
+  color: #776f60;
+  font-size: 10px;
+  letter-spacing: 0.3px;
+}
+.gamepad-settings .settings-list {
+  border-top: 1px solid #c1b8a7;
+}
+.gamepad-settings .settings-list label {
+  padding: 20px 0;
+}
+.gamepad-map {
+  margin: 14px 0 0;
+  color: #87806f;
+  font-size: 10px;
+  line-height: 1.8;
+  letter-spacing: 0.3px;
+}

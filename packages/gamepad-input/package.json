@@ -1,0 +1,13 @@
+{
+  "name": "career-planner-gamepad-input",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Controller input for the career roadmap terminal: PS/Xbox mapping with hot swap, stick/D-pad navigation, scroll and rumble.",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "check": "node --experimental-strip-types ../../scripts/check-gamepad.mjs"
+  }
+}

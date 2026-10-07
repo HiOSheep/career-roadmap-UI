@@ -1,0 +1,93 @@
+.detail-content .album-metadata { display:grid;grid-template-columns:repeat(3,1fr);gap:16px; }
+.detail-content .album-metadata dd { font-size:15px; }
+.detail-content .album-artist { font-size:20px; }
+.album-track-head,.album-source { display:flex;justify-content:space-between;gap:12px;font-size:11px;letter-spacing:1px; }
+.album-tracks { list-style:none;margin:12px 0;padding:0; }
+.album-tracks li { display:grid;grid-template-columns:30px 1fr 115px;align-items:center;gap:12px;padding:11px 0;border-bottom:1px solid color-mix(in srgb,currentColor 15%,transparent); }
+.album-tracks strong { display:block;font-size:16px;font-weight:500;line-height:1.5; }
+.album-tracks small { display:block;font-size:11px;opacity:.6;margin-top:3px; }
+.album-track-number { font-size:12px;opacity:.55; }
+.album-track-note { font-size:11px;opacity:.65;text-align:right; }
+.album-source { letter-spacing:0;align-items:center; }
+.album-source a,.album-official-link { color:inherit;text-underline-offset:4px; }
+.album-description { display:grid;grid-template-columns:130px 1fr;gap:22px; }
+.album-description img { width:130px;aspect-ratio:1;border-radius:4px; }
+.album-description h3 { margin:0;font-size:22px; }
+.album-description dl { font-size:13px;line-height:1.7; }
+.album-description dl div { display:flex;gap:12px; }
+.album-description dt { opacity:.6;min-width:65px; }
+.album-description dd { margin:0; }
+.album-official-link { font-size:12px; }
+.album-listen { text-decoration:none; }
+.album-pending { padding:10px 0; }
+.album-pending>span { font-size:11px;letter-spacing:2px;opacity:.55; }
+.booklet-link { display:block;margin:12px 0 0 auto;padding:4px 0;background:none;border:0;color:inherit;font-size:12px;opacity:.65;cursor:pointer;text-decoration:underline;text-underline-offset:4px; }
+.terminal-modal.booklet-modal { width:min(1100px,90vw);max-height:88vh;overflow:auto; }
+.booklet-heading>span { font-size:11px;letter-spacing:2px;opacity:.6; }
+.booklet-heading h2 { margin:14px 0 4px; }
+.booklet-heading p { margin:0 0 24px; }
+.booklet-pages { display:grid;grid-template-columns:1fr 1fr;gap:32px;margin:20px 0; }
+.booklet-pages>section { padding:24px;background:color-mix(in srgb,currentColor 4%,transparent); }
+.booklet-pages .album-description { grid-template-columns:1fr; }
+.booklet-pages .album-description img { width:min(100%,260px); }
+.booklet-pages .album-tracks li { grid-template-columns:24px 1fr; }
+.booklet-pages .album-track-note { grid-column:2;text-align:left; }
+.booklet-audio { margin:12px 0;font-size:12px;opacity:.65; }
+/* The panel is drawn by the model (src/disc-panel.ts); what stays here is a
+   transparent hit area per button, aligned to the same layout, plus the text
+   assistive technology reads. */
+.disc-controls { position:absolute;left:0;top:0;z-index:4;transform-origin:0 0;width:210px;height:100px;pointer-events:none; }
+.disc-controls[hidden] { display:none; }
+.disc-controls button { position:absolute;padding:0;border:0;border-radius:50%;background:none;color:transparent;cursor:pointer;pointer-events:auto;transition:transform 140ms cubic-bezier(.22,1,.36,1); }
+.disc-controls button:active:not(:disabled) { transform:scale(.9);transition-duration:70ms; }
+.disc-controls button:focus-visible { outline:2px solid color-mix(in srgb,currentColor 70%,transparent);outline-offset:2px; }
+.disc-controls button:disabled { cursor:default; }
+.disc-controls[inert] button { pointer-events:none; }
+.disc-meta { position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap; }
+@media (max-aspect-ratio: 1/1) {
+  .booklet-pages { grid-template-columns:1fr;gap:15px; }
+  .album-tracks li { grid-template-columns:24px 1fr;gap:10px; }
+  .album-track-note { grid-column:2;text-align:left; }
+  .album-description { grid-template-columns:1fr;gap:15px; }
+  .album-description img { width:140px; }
+  .album-source { flex-wrap:wrap; }
+}
+
+/* Model tools belong to the left preview; the plan is the primary document action. */
+#detail-ui .detail-model-actions { position:absolute;left:60px;bottom:110px;display:flex;gap:10px;pointer-events:auto; }
+#detail-ui .detail-model-actions button { display:flex;align-items:center;gap:18px;min-height:44px;padding:0 16px;border:0;background:transparent;color:#5e432b;font-size:12px;transition:color .18s,transform .18s; }
+#detail-ui .detail-model-actions button:hover { color:#986335;transform:translateY(-2px); }
+#detail-ui .detail-model-actions button:active { transform:translateY(0); }
+#detail-ui .detail-model-actions button:focus-visible, #detail-ui .roadmap-primary:focus-visible { outline:2px solid var(--theme-ink);outline-offset:4px; }
+#detail-ui .roadmap-primary { min-height:58px;background:#20221d;color:#f6f6f2;border:1px solid #20221d;box-shadow:0 3px 10px #17202520; }
+#detail-ui .roadmap-primary strong { font-size:16px;font-weight:600;letter-spacing:.5px; }
+#detail-ui .roadmap-primary > span { color:#d7dddc;font-size:11px; }
+#detail-ui .roadmap-primary:hover { background:#20221d; }
+[data-dark-surface="true"] #detail-ui .detail-model-actions button { color:#e3c8a3; }
+[data-dark-surface="true"] #detail-ui .detail-model-actions button:hover { color:#fff0d6; }
+[data-dark-surface="true"] #detail-ui .roadmap-primary { background:#20221d;color:#f6f6f2;border-color:#20221d; }
+[data-dark-surface="true"] #detail-ui .roadmap-primary > span { color:#d7dddc; }
+[data-dark-surface="true"] #detail-ui .roadmap-primary:hover { background:#20221d; }
+:is([data-layout="compact"], [data-layout="portrait"]) #detail-ui .detail-model-actions { left:var(--edge);bottom:55px;max-width:46%;gap:6px;flex-wrap:wrap; }
+:is([data-layout="compact"], [data-layout="portrait"]) #detail-ui .detail-model-actions button { min-height:36px;padding:0 10px;font-size:10px;gap:8px; }
+[data-layout="compact"] #detail-ui .object-caption { bottom:145px; }
+[data-layout="portrait"] #detail-ui .detail-model-actions { bottom:calc(46% - 5px);max-width:none; }
+[data-layout="portrait"] #detail-ui .object-caption { bottom:calc(46% + 42px); }
+
+.booklet-pages .album-tracks li:has(.booklet-track) { display:block;padding:0; }
+.booklet-track { display:grid;grid-template-columns:24px 1fr;gap:12px;align-items:center;width:100%;padding:14px 8px;border:0;background:none;color:inherit;text-align:left;cursor:pointer;transition:background 180ms ease,translate 180ms ease; }
+.booklet-track:hover:not(:disabled),.booklet-track[aria-pressed="true"] { background:color-mix(in srgb,currentColor 7%,transparent); }
+.booklet-track:active:not(:disabled) { translate:0 1px; }
+.booklet-track:focus-visible { outline:2px solid currentColor;outline-offset:-2px; }
+.booklet-track:disabled { opacity:.5;cursor:default; }
+.booklet-track-state { grid-column:2;font-size:11px;opacity:.7; }
+.booklet-pages .album-tracks li > .booklet-track { grid-column:1 / -1;display:grid;grid-template-columns:24px minmax(0,1fr) auto;column-gap:12px;row-gap:4px;width:100%;min-width:0; }
+.booklet-track > .album-track-number { grid-column:1;grid-row:1; }
+.booklet-track > div { grid-column:2;grid-row:1; }
+.booklet-track > .album-track-note { grid-column:2;grid-row:2; }
+.booklet-track > .booklet-track-state { grid-column:3;grid-row:1 / 3;align-self:center;white-space:nowrap; }
+.booklet-track > div { min-width:0; }
+.booklet-track strong,.booklet-track small,.booklet-track-state { white-space:normal;word-break:normal; }
+.disc-controls .disc-seek { position:absolute;left:7.14%;top:89%;width:85.72%;height:11%;margin:0;opacity:0;pointer-events:auto;cursor:ew-resize;touch-action:none; }
+.disc-controls[inert] .disc-seek { pointer-events:none; }
+.disc-controls .disc-seek:focus-visible { opacity:.65;accent-color:white; }

@@ -1,0 +1,17 @@
+{
+  "months": [
+    { "monthId": "MONTH 01", "albumId": null },
+    { "monthId": "MONTH 02", "albumId": null },
+    { "monthId": "MONTH 03", "albumId": null },
+    { "monthId": "MONTH 04", "albumId": null },
+    { "monthId": "MONTH 05", "albumId": null },
+    { "monthId": "MONTH 06", "albumId": null },
+    { "monthId": "MONTH 07", "albumId": null },
+    { "monthId": "MONTH 08", "albumId": null },
+    { "monthId": "MONTH 09", "albumId": null },
+    { "monthId": "MONTH 10", "albumId": null },
+    { "monthId": "MONTH 11", "albumId": null },
+    { "monthId": "MONTH 12", "albumId": null }
+  ],
+  "albums": []
+}

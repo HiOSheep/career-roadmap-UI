@@ -1,0 +1,38 @@
+{
+  "name": "career-roadmap-ui",
+  "version": "1.0.0",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "postinstall": "node scripts/patch-rolling-number.mjs",
+    "predev": "node scripts/patch-rolling-number.mjs && node scripts/export-records.mjs && node --experimental-strip-types scripts/build-shelf-model.mjs",
+    "dev": "vite --host 127.0.0.1",
+    "prebuild": "node scripts/patch-rolling-number.mjs && node scripts/export-records.mjs && node scripts/prepare-webfonts.mjs && node --experimental-strip-types scripts/build-shelf-model.mjs",
+    "check:content": "node --experimental-strip-types --test scripts/check-content.mjs",
+    "check:cd-case": "node --experimental-strip-types scripts/check-cd-case.mjs",
+    "check:gamepad": "node --experimental-strip-types scripts/check-gamepad.mjs",
+    "check:album-mapping": "node --experimental-strip-types scripts/check-album-mapping.mjs",
+    "check:albums": "node scripts/check-albums.mjs",
+    "check:viewport": "node --experimental-strip-types scripts/check-viewport.mjs",
+    "check:disc": "node --experimental-strip-types scripts/check-disc-controls.mjs",
+    "check:panel": "node --experimental-strip-types scripts/check-disc-panel.mjs",
+    "check:reveal": "node --experimental-strip-types scripts/check-document-reveal.mjs",
+    "review:mobile": "node scripts/serve-mobile-review.mjs",
+    "export:archives": "node scripts/export-records.mjs",
+    "build": "tsc && vite build && node scripts/build-release.mjs",
+    "build:cloudflare": "npm run build && node scripts/package-cloudflare.mjs",
+    "format": "prettier --write src scripts index.html package.json tsconfig.json",
+    "preview": "vite preview --host 127.0.0.1"
+  },
+  "dependencies": {
+    "@kitlangton/rolling-number": "0.4.1",
+    "three": "^0.183.0"
+  },
+  "devDependencies": {
+    "@types/three": "^0.183.0",
+    "prettier": "^3.9.6",
+    "typescript": "^5.9.3",
+    "vite": "^7.3.1"
+  }
+}

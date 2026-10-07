@@ -1,0 +1,35 @@
+node_modules/
+backups/
+dist/
+.tools/
+*.mp4
+*.blend1
+optix7cache.db
+reference/*.jpg
+reference/**/*.jpg
+art/.cache/
+.worktrees/
+release/
+video/
+__pycache__/
+*.pyc
+.env
+.env.*
+!.env.example
+
+reference/local-files-connection.js
+
+# Local integration checkout
+.main-integration/
+
+# Individually licensed MyFonts kit; install locally, never publish to Git.
+public/fonts/novecento/
+.vercel/
+.wrangler/
+
+# User supplied local album recordings
+public/album-audio/**/*.m4a
+public/album-audio/**/*.mp3
+public/album-audio/**/*.ogg
+public/album-audio/**/*.wav
+public/album-audio/**/*.flac
